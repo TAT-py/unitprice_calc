@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1"> -->
+<title>単価比較</title>
+
+<style>
+
+
+table{
+  border-collapse:collapse;
+  font-family: sans-serif;
+}
+
+th{
+  background-color: #888888;
+  font-family: sans-serif;
+  font-weight: normal;
+  color:#ffffff
+
+}
+
+input[type="radio"] {
+    font-family: sans-serif;
+}
+
+input[type="text"] {
+    width: 95%;
+    text-align: center;
+    border:solid 0px;
+}
+input[type="number"] {
+    width: 95%;
+    text-align: center;
+    border:solid 0px;
+}
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+</style>
+
+</head>
+<body>
+<div>100gあたり、1個あたりの値段を比べます</div><br>
+
+<input type="radio" name="type" value="A型" checked onclick="unitg()">100gあたり
+<input type="radio" name="type" value="B型" onclick="unitko()">1個あたり<br>
+
+  <table border="1">
+  　<tr>
+  　　<th width="25%" height="30">品名</th>
+  　　<th width="25%">価格</th>
+      <th width="25%" id="naiyouryou">内容量(g)</th>
+      <th width="25%">単価</th>
+  　</tr>
+  　<tr align="center" height="30">
+  　　<td width="25%"><input type="text"></td>
+  　　<td width="25%"><input type="number" id="price1" onchange="myfunc()"></td>
+    　<td width="25%"><input type="number" id="volume1" onchange="myfunc()"></td>
+      <td width="25%" id="pperv1"></td>
+     </tr>
+     <tr align="center" height="30">
+     　　<td width="25%"><input type="text"></td>
+     　　<td width="25%"><input type="number" id="price2" onchange="myfunc()"></td>
+       　<td width="25%"><input type="number" id="volume2" onchange="myfunc()"></td>
+         <td width="25%" id="pperv2"></td>
+     </tr>
+     <tr align="center" height="30">
+     　　<td width="25%"><input type="text"></td>
+     　　<td width="25%"><input type="number" id="price3" onchange="myfunc()"></td>
+       　<td width="25%"><input type="number" id="volume3" onchange="myfunc()"></td>
+         <td width="25%" id="pperv3"></td>
+     </tr>
+     <tr align="center" height="30">
+     　　<td width="25%"><input type="text"></td>
+     　　<td width="25%"><input type="number" id="price4" onchange="myfunc()"></td>
+       　<td width="25%"><input type="number" id="volume4" onchange="myfunc()"></td>
+         <td width="25%" id="pperv4"></td>
+     </tr>
+     <tr align="center" height="30">
+     　　<td width="25%"><input type="text"></td>
+     　　<td width="25%"><input type="number" id="price5" onchange="myfunc()"></td>
+       　<td width="25%"><input type="number" id="volume5" onchange="myfunc()"></td>
+         <td width="25%" id="pperv5"></td>
+     </tr>
+     <tr align="center" height="30">
+     　　<td width="25%"><input type="text"></td>
+     　　<td width="25%"><input type="number" id="price6" onchange="myfunc()"></td>
+       　<td width="25%"><input type="number" id="volume6" onchange="myfunc()"></td>
+         <td width="25%" id="pperv6"></td>
+     </tr>
+     <tr align="center" height="30">
+     　　<td width="25%"><input type="text"></td>
+     　　<td width="25%"><input type="number" id="price7" onchange="myfunc()"></td>
+       　<td width="25%"><input type="number" id="volume7" onchange="myfunc()"></td>
+         <td width="25%" id="pperv7"></td>
+     </tr>
+<script>
+unitValue = 100
+
+function myfunc() {
+   document.getElementById("pperv1").innerText = "";
+   var price1 = document.getElementById("price1").value;
+   var volume1 = document.getElementById("volume1").value;
+   pperv1 = Math.round(price1/volume1*unitValue)
+   if (1000000>pperv1>0){
+   document.getElementById("pperv1").innerText = pperv1;
+                }
+   document.getElementById("pperv2").innerText = "";
+   var price2 = document.getElementById("price2").value;
+   var volume2 = document.getElementById("volume2").value;
+   pperv2 = Math.round(price2/volume2*unitValue)
+   if (1000000>pperv2>0){
+   document.getElementById("pperv2").innerText = pperv2;
+                }
+   document.getElementById("pperv3").innerText = "";
+   var price3 = document.getElementById("price3").value;
+   var volume3 = document.getElementById("volume3").value;
+   pperv3 = Math.round(price3/volume3*unitValue)
+   if (1000000>pperv3>0){
+   document.getElementById("pperv3").innerText = pperv3;
+                }
+   document.getElementById("pperv4").innerText = "";
+   var price4 = document.getElementById("price4").value;
+   var volume4 = document.getElementById("volume4").value;
+   pperv4 = Math.round(price4/volume4*unitValue)
+   if (1000000>pperv4>0){
+   document.getElementById("pperv4").innerText = pperv4;
+                 }
+   document.getElementById("pperv5").innerText = "";
+   var price5 = document.getElementById("price5").value;
+   var volume5 = document.getElementById("volume5").value;
+   pperv5 = Math.round(price5/volume5*unitValue)
+   if (1000000>pperv5>0){
+   document.getElementById("pperv5").innerText = pperv5;
+                }
+  document.getElementById("pperv6").innerText = "";
+  var price6 = document.getElementById("price6").value;
+  var volume6 = document.getElementById("volume6").value;
+  pperv6 = Math.round(price6/volume6*unitValue)
+  if (1000000>pperv6>0){
+  document.getElementById("pperv6").innerText = pperv6;
+               }
+   document.getElementById("pperv7").innerText = "";
+  var price7 = document.getElementById("price7").value;
+  var volume7 = document.getElementById("volume7").value;
+pperv7 = Math.round(price7/volume7*unitValue)
+if (1000000>pperv7>0){
+document.getElementById("pperv7").innerText = pperv7;
+        }
+                }
+
+function unitg() {
+    unitValue = 100
+    document.getElementById("naiyouryou").innerText ="内容量(g)";
+     myfunc()
+                }
+function unitko() {
+    unitValue = 1
+    document.getElementById("naiyouryou").innerText ="内容量(個)";
+     myfunc()
+                }
+
+</script>
+
+</body>
+
+
+</html>
